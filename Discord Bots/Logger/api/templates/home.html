@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{ name }}#{{ discrim }} - Home</title>
+</head>
+<body>
+  <div id="top"></div>
+  <a style="float:right;" class="skip-link" href="#end">To the Bottom</a>
+
+  <div class="guilds" id="guilds">
+    {% for guild in guilds %}
+      <div class="servercard center">
+        <img class="servercardlogo" src="{{ guild['icon_url'] }}" width="140" height="140" alt="">
+        <h class="glow servercardtitle">{{ guild['name'] }}</h><br>
+        {% if guild["id"] in guildsin %}
+        <a class="servercardtitle" href="/{{ guild['id'] }}">Manage</a>
+        {% else %}
+        <a class="servercardtitle" href="{{ guild['bot_invite'] }}">Add Bot</a>
+        {% endif %}
+      </div><br>
+    {%endfor%}
+  </div>
+
+<a style="float:right;" class="skip-link" href="#top">To the Top</a>
+<div id="end"></div>
+</body>
+</html>
+<script>
+  function openNav() {
+    document.getElementById("Nav").style.width = "250px";
+  }
+
+  function closeNav() {
+    document.getElementById("Nav").style.width = "0";
+  }
+</script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+  font-family: 'Roboto', sans-serif;
+  color: white;
+}
+
+body {
+  background-color: #4c4a5c;
+}
+
+/*                                                               Animations */
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff;
+  }
+
+  to {
+    text-shadow: 0 0 20px #fff;
+  }
+}
+
+.glow {
+  text-shadow: 0 0 10px #fff;
+  -webkit-animation: glow 2s ease-in-out infinite alternate;
+  -moz-animation: glow 2s ease-in-out infinite alternate;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+/*                                                               Discord */
+
+.servercard {
+  border-radius: 5px;
+  background-color: #5b596e;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+}
+
+.servercardlogo {
+  border-radius: 50%;
+  cursor: pointer;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.servercardtitle {
+  font-size: 22px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.serverinfo {
+  float: right;
+  background-color: black;
+}
+
+</style>

@@ -1,0 +1,59 @@
+@font-face {
+  font-family: main;
+  src: url("main.ttf");
+}
+
+body {
+  background-image: url('stars.gif');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.title {
+  font-family: main;
+  font-size: 40px;
+  color: white;
+}
+
+/* navigation starts */
+nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: main;
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+}
+li {
+  float: right;
+}
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+li a:hover {
+  font-family: main;
+  font-size: 20px;
+  color: red;
+  text-decoration: none;
+}
+/* navigation ends */
+
+.main_text {
+  color: white;
+  font-size: 25px;
+  font-family: main;
+
+.link {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}

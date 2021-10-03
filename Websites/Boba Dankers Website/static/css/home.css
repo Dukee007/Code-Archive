@@ -1,0 +1,43 @@
+/*                                 IMPORTS */
+
+@import url('https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap');
+
+/*                                 ALL/BODY */
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-color: #7B5F7D;
+}
+
+/*                                 TEXT/IMAGES */
+
+.cursive {
+  font-family: 'Rouge Script', cursive;
+  font-size: 45px;
+}
+
+.title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+  color: white;
+}
+
+.titlec {
+  font-family: 'Rouge Script', cursive;
+  font-size: 35px;
+  color: white;
+}
+
+.text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 25px;
+  color: white;
+}
+
+.textimg {
+  border-radius: 6px;
+}

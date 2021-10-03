@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="icon" type="image/png" href="/assets/tbdb_logo.png">
+  <meta charset="UTF-8">
+  <meta name="description" content="The Best Discord Bot">
+  <meta name="keywords" content="Discord, DiscordBot, Discord, Bots, Bot, discord, bot, bots, discordbots, discord bot">
+  <meta name="author" content="LUNA#7756">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>TBDB - Home</title>
+</head>
+<nav>
+  <li><a href="..">Home</a></li>
+  <li><a href="/support">Support</a></li>
+  <li><a href="/cmds">Commands</a></li>
+  <li><a href="/settings">Settings</a></li>
+</nav>
+<body align="center"><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <div class="title-invite-container">
+    <div class="inside-title-invite-container">
+      <h class="title-text">Its time your discord server got an upgrade!</h><br>
+      <p class="subtitle-text">Moderation, Leveling, Translation, and much more with the most simple commands!</p><br>
+      <a onclick="botinvite()" class="main_button">
+        <span>Add to Discord</span>
+      </a>
+      <a onclick="scrolltofeatures()" class="black_button">
+        <span>Features</span>
+      </a>
+    </div>
+  </div><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <div class="features">
+    <div class="feature1">
+      <h class="feature_head">Simple infomative help command!</h>
+      <p class="feature_text">Need help? Well thats no problem for our easy to use help command.</p><br><br>
+      <img class="feature_image" src="/assets/help_command.png">
+    </div><br><br><br><br><br><br>
+    <div class="feature2">
+      <h class="feature_head">High quality music!</h>
+      <p class="feature_text">Want to listen to some music? Well you can, just ask tbdb to play a song.</p><br><br>
+      <img class="feature_image" src="/assets/music_command.png">
+    </div><br><br><br><br><br><br>
+    <div class="feature3">
+      <h class="feature_head">Easy reports!</h>
+      <p class="feature_text">Fed up of bad members? Well just report them.</p><br><br>
+      <img class="feature_image" src="/assets/report_command.png">
+    </div>
+  </div>
+</body>
+</html>
+<script>
+const popupCenter = ({url, title, w, h}) => { // A function to open a popup in the center of the users screen
+  // Fixes dual-screen position                             Most browsers      Firefox
+  const dualScreenLeft = window.screenLeft !==  undefined ? window.screenLeft : window.screenX;
+  const dualScreenTop = window.screenTop !==  undefined   ? window.screenTop  : window.screenY;
+
+  const width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+  const height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+  const systemZoom = width / window.screen.availWidth;
+  const left = (width - w) / 2 / systemZoom + dualScreenLeft
+  const top = (height - h) / 2 / systemZoom + dualScreenTop
+  const newWindow = window.open(url, title,
+    `
+    scrollbars=yes,
+    width=${w / systemZoom},
+    height=${h / systemZoom},
+    top=${top},
+    left=${left}
+    `
+  )
+
+  if (window.focus) newWindow.focus();
+}
+
+function scrolltofeatures() { // A funtion to activate auto scroll
+  $("html, body").animate({scrollTop: -5000}, 1)
+  $("html, body").animate({scrollTop: 700}, 2000)
+;}
+
+function supportserver() { // A funtion to open the support server invite
+  popupCenter({url: 'https://discord.gg/t8JgMA8', title: 'Discord', w: 500, h: 600});
+}
+
+function botinvite() {
+  popupCenter({url: 'https://discord.com/api/oauth2/authorize?client_id=737697230156333166&permissions=8&redirect_uri=http%3A%2F%2Ftbdb.ueuo.com%2Fafterinv&scope=bot', title: 'Discord', w: 500, h: 600});
+  window.location.replace("/after-invite");
+}
+</script>

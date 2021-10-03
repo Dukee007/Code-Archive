@@ -1,0 +1,66 @@
+@font-face {
+  font-family: main;
+  src: url(main.otf);
+}
+
+/* navigation starts */
+nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: main;
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+}
+li {
+  float: right;
+}
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+li a:hover {
+  font-family: main;
+  font-size: 20px;
+  color: red;
+  text-decoration: none;
+}
+/* navigation ends */
+
+body {
+  background: black;
+  font-family: main;
+}
+
+.title {
+  color: white;
+  font-size: 60px;
+}
+
+.main-text {
+  color: white;
+  font-size: 13px;
+}
+
+.table {
+  font-family: main;
+  font-size: 13px;
+  color: white;
+}
+
+.small-text {
+  font-family: main;
+  font-size: 10px;
+  color: white;
+}
+
+.tiny-text {
+  font-family: main;
+  font-size: 6px;
+  color: white;
+}

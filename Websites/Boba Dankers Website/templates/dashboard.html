@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/static?file=css/dashboard.css">
+  <link rel="stylesheet" href="/static?file=css/navbar.css">
+  <link rel="stylesheet" href="/static?file=css/cookie-message.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//browser-update.org/update.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js" integrity="sha512-74AKPNm8Tfd5E9c4otg7XNkIVfIe5ynON7wehpX/9Tv5VYcZvXZBAlcgOAjLHg6HeWyLujisAnle6+iKnyWd9Q==" crossorigin="anonymous"></script>
+  <script src="/static?file=js/dashboard.js"></script>
+  <script src="/static?file=js/website-wide.js"></script>
+  <title>Boba Dankers - Dashboard</title>
+</head>
+<data style="display:none;" id="id">{{ userdata["id"] }}</data>
+<data style="display:none;" id="dankdata">{{ indankdata }}</data>
+<body align="center">
+
+  <ul>
+    <li><a href="#home">Behaviour</a></li>
+    <li><a href="#news">Announcements</a></li>
+    <li><a href="/dashboard">Dashboard</a></li>
+    <li><a href="/discord-signout">Logout</a></li>
+    <li style="float:left"><a class="cursive" href="/">Boba Dankers</a></li>
+  </ul>
+
+  <div class="dash">
+    <div class="col">
+      <div class="colbox first" id="colbox1">
+        {% if not indankdata %}
+        <div class = "spinner" style = "font-size: 5px">
+          <div class = "head"></div>
+        </div>
+        {% else %}
+        <h class="colbox_title">Balance Information</h><br>
+        <p class="colbox_text">Wallet: {{ dankinfo["bal"]["wallet"] }}</p>
+        <p class="colbox_text">Bank: {{ dankinfo["bal"]["bank"] }}</p>
+        {% endif %}
+      </div>
+      <div class="colbox first" id="colbox2">
+        eeee
+      </div>
+      <div class="colbox first" id="colbox3">
+        eeee
+      </div>
+    </div>
+    <div class="col">
+      <div class="colbox">
+        <img src={{ userdata["pfp"] }} class="pfp"><br>
+        <h class="name">{{ userdata["name"] }}#{{ userdata["discrim"] }}</h>
+      </div>
+      <div class="colbox">
+        eeee
+      </div>
+      <div class="colbox">
+        eeee
+      </div>
+    </div>
+    <div class="col">
+      <div class="colbox end">
+        <h class="colbox_title">Member Information</h><br>
+        <p class="colbox_text">All: {{ serverinfo["member_count"]["all"] }}</p>
+        <p class="colbox_text">Users: {{ serverinfo["member_count"]["users"] }}</p>
+        <p class="colbox_text">Bots: {{ serverinfo["member_count"]["bots"] }}</p>
+      </div>
+      <div class="colbox end">
+        <h class="colbox_title">Boost Information</h><br>
+        <p class="colbox_text">Boosts: {{ serverinfo["boosts"] }}<br>Invite Splash: {{ serverinfo["server_features"]["has_invite_splash"] }}<br>News Channel: {{ serverinfo["server_features"]["has_news_channels"] }}<br>Animated Logo: {{ serverinfo["server_features"]["has_animated_icon"] }}<br>Banner: {{ serverinfo["server_features"]["has_banner"] }}<br>Vanity Url: {{ serverinfo["server_features"]["has_vanity_url"] }}</p>
+      </div>
+      <div class="colbox end">
+        <h class="colbox_title">Channel/Role Information</h><br>
+        <p class="colbox_text">Roles: {{ serverinfo["role_count"] }}</p>
+        <p class="colbox_text">Categorys: {{ serverinfo["channel_count"]["category"] }}<br>Text Channels: {{ serverinfo["channel_count"]["text"] }}<br>Voice Channels: {{ serverinfo["channel_count"]["voice"] }}</p>
+      </div>
+    </div>
+  </div>
+  <div style="display: none;" class="cookie-message" id="cookie">
+    <img src="https://img.icons8.com/plasticine/100/000000/cookie.png">
+    <span>We use cookies to provide you the best possible experience. But don't panic - we won't share any of your data. You can find more informations about our cookies <a href="/help/cookies">here</a>.</span>
+    <a class="close" onclick="close_cookie_message()"><i class="fa fa-times"></i></a>
+  </div>
+</body>
+</html>

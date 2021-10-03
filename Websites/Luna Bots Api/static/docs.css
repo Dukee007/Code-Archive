@@ -1,0 +1,107 @@
+/*                                                               GoogleFontImports */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap');
+
+/*                                                               PageSettings */
+* {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+body {
+  margin: 0px;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://lunabots.xyz/static/assets/background.svg");
+  background-size: 3000px;
+}
+
+/*                                                               Footer */
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #24252A;
+  color: white;
+}
+
+/* Svgs*/
+.symbol {
+  height: 15px;
+}
+
+/* Div Tags*/
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.center {
+  float: center;
+}
+
+.dc {
+  width: 85%;
+  padding: 140px;
+}
+
+.text {
+  color: white;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+/*                                                               Animations */
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff;
+  }
+
+  to {
+    text-shadow: 0 0 20px #fff;
+  }
+}
+
+/*                                                               TextAndImages */
+.logo {
+  width: 250px;
+  cursor: pointer;
+}
+
+.glow {
+  text-shadow: 0 0 10px #fff;
+  -webkit-animation: glow 2s ease-in-out infinite alternate;
+  -moz-animation: glow 2s ease-in-out infinite alternate;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.boldtext {
+  font-size: 130px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+}
+
+.text {
+  margin: 5px;
+  color: white;
+  font-size: 23px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+.h {
+  margin: 5px;
+  color: white;
+  font-size: 40px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+code {
+  padding: 0;
+  margin: 0;
+}

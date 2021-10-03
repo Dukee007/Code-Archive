@@ -1,0 +1,164 @@
+/*                                                               GoogleFontImports */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+/*                                                               CssOnLoadFix */
+
+.preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+ }
+
+ .feature_head {
+   font-size: 25px;
+   font-family: 'Roboto', sans-serif;
+   color: white;
+ }
+
+ .feature_image {
+   box-shadow: 5px 5px 10px #151517;
+   border-radius: 5px;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   width: 100%;
+ }
+
+ .features {
+   margin: auto;
+   width: 50%;
+   padding: 10px;
+ }
+
+/*                                                               PageDivs */
+
+.title-invite-container {
+  margin: auto;
+  width: 80%;
+  padding: 10px;
+}
+
+/*                                                               ButtonStyles */
+
+.main_button {
+  background-color: #62D3F5;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  padding: 10px 40px;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.main_button:hover {
+  background-color:  #31b6de;
+}
+
+.black_button {
+  background-color: #000000;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  padding: 10px 40px;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.black_button:hover {
+  background-color:  #141414;
+}
+
+/*                                                               PageSettings */
+
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  justify-content: center;
+  align-items: center;
+  background-color: #24252A;
+}
+
+/*                                                               Text */
+
+.title-text {
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  font-size: 35px;
+}
+
+.subtitle-text {
+  font-family: 'Open Sans', sans-serif;
+  color: #BEBEC0;
+  font-size: 22px;
+}
+
+.feature_text {
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+  color: #BEBEC0;
+}
+
+/*                                                               NavBar */
+
+nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-size: 17px;
+  color: #BDBDBF;
+  text-decoration: none;
+}
+li {
+  float: left;
+}
+
+li a {
+  cursor: pointer;
+  display: block;
+  color: #BDBDBF;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+li a:hover {
+  color: white;
+}
+
+/*                                                               ScrollBar */
+
+/* width */
+::-webkit-scrollbar {
+width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+background: #24252A;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #888;
+border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #777;
+}

@@ -1,0 +1,90 @@
+{
+    "attributeScores": {
+        "FLIRTATION": {
+            "spanScores": [
+                {
+                    "begin": 0,
+                    "end": 20,
+                    "score": {
+                        "type": "PROBABILITY",
+                        "value": 0.8981763
+                    }
+                }
+            ],
+            "summaryScore": {
+                "type": "PROBABILITY",
+                "value": 0.8981763
+            }
+        },
+        "INCOHERENT": {
+            "spanScores": [
+                {
+                    "begin": 0,
+                    "end": 20,
+                    "score": {
+                        "type": "PROBABILITY",
+                        "value": 0.55307436
+                    }
+                }
+            ],
+            "summaryScore": {
+                "type": "PROBABILITY",
+                "value": 0.55307436
+            }
+        },
+        "INSULT": {
+            "spanScores": [
+                {
+                    "begin": 0,
+                    "end": 20,
+                    "score": {
+                        "type": "PROBABILITY",
+                        "value": 0.20118283
+                    }
+                }
+            ],
+            "summaryScore": {
+                "type": "PROBABILITY",
+                "value": 0.20118283
+            }
+        },
+        "SPAM": {
+            "spanScores": [
+                {
+                    "begin": 0,
+                    "end": 20,
+                    "score": {
+                        "type": "PROBABILITY",
+                        "value": 0.22448702
+                    }
+                }
+            ],
+            "summaryScore": {
+                "type": "PROBABILITY",
+                "value": 0.22448702
+            }
+        },
+        "TOXICITY": {
+            "spanScores": [
+                {
+                    "begin": 0,
+                    "end": 20,
+                    "score": {
+                        "type": "PROBABILITY",
+                        "value": 0.24226487
+                    }
+                }
+            ],
+            "summaryScore": {
+                "type": "PROBABILITY",
+                "value": 0.24226487
+            }
+        }
+    },
+    "detectedLanguages": [
+        "en"
+    ],
+    "languages": [
+        "en"
+    ]
+}

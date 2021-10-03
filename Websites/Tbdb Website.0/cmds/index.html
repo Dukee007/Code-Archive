@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="script.js"> </script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="icon" type="image/png" href="/assets/tbdb_logo.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>TBDB - Commands</title>
+</head>
+<nav>
+  <li><a href="..">Home</a></li>
+  <li><a onclick="supportserver()">Support</a></li>
+  <li><a href="/cmds">Commands</a></li>
+  <li><a href="/settings">Settings</a></li>
+</nav>
+<body class="preload" onload="onload()">
+<table class="table" align="center" style="height: 200px; width: 574px;">
+<tr class="table_titles">
+<td style="width: 134px; text-align: center; margin: 0; margin: 0;"><u>Command</u></td>
+<td style="width: 134px; text-align: center; margin: 0; margin: 0;"><u>Discription</u></td>
+<td style="width: 134px; text-align: center; margin: 0; margin: 0;"><u>Usage</u></td>
+</tr>
+<tr>
+<td style="width: 134px; text-align: center; margin: 0;">lock</td>
+<td style="width: 134px; text-align: center; margin: 0; margin: 0;">Locks a channel from normal users</td>
+<td style="width: 134px; text-align: center; margin: 0;">.lock</td>
+</tr>
+<tr>
+<td colspan="5">
+<div><hr></div>
+</td>
+</tr>
+<tr>
+<td style="width: 134px; text-align: center; margin: 0;">unlock</td>
+<td style="width: 134px; text-align: center; margin: 0; margin: 0;">Unlocks a channel from normal users</td>
+<td style="width: 134px; text-align: center; margin: 0;">.unlock</td>
+</tr>
+<tr>
+<td colspan="5">
+<div><hr></div>
+</td>
+</tr>
+<tr>
+<td style="width: 134px; text-align: center; margin: 0;">report</td>
+<td style="width: 134px; text-align: center; margin: 0; margin: 0;">Allows you to report users for a reason (only if setup by server admins use .reportsetup in the channel for reports)</td>
+<td style="width: 134px; text-align: center; margin: 0;">.report {who} {reason}</td>
+</tr>
+<tr>
+<td colspan="5">
+<div><hr></div>
+</td>
+</tr>
+<tr>
+<td style="width: 134px; text-align: center; margin: 0;">serverinfo</td>
+<td style="width: 134px; text-align: center; margin: 0; margin: 0;">Show infomation about the server</td>
+<td style="width: 134px; text-align: center; margin: 0;">.serverinfo</td>
+</tr>
+<tr>
+<td colspan="5">
+<div><hr></div>
+</td>
+</tr>
+<tr>
+<td style="width: 134px; text-align: center; margin: 0;">resetmessages</td>
+<td style="width: 134px; text-align: center; margin: 0; margin: 0;">Delete's all messages in every channel</td>
+<td style="width: 134px; text-align: center; margin: 0;">.resetmessages</td>
+</tr>
+<tr>
+<td colspan="5">
+<div><hr></div>
+</td>
+</tr>
+<tr>
+<td style="width: 134px; text-align: center; margin: 0;">clearuser</td>
+<td style="width: 134px; text-align: center; margin: 0; margin: 0;">Delete's all messages sent by the given user in every channel</td>
+<td style="width: 134px; text-align: center; margin: 0;">.clearuser {user}</td>
+</tr>
+<tr>
+<td colspan="5">
+<div><hr></div>
+</td>
+</tr>
+<tr>
+<td style="width: 134px; text-align: center; margin: 0;">raw</td>
+<td style="width: 134px; text-align: center; margin: 0; margin: 0;">Show the raw data of a message</td>
+<td style="width: 134px; text-align: center; margin: 0;">.raw {data}</td>
+</tr>
+<tr>
+<td colspan="5">
+<div><hr></div>
+</td>
+</tr>
+<tr>
+<td style="width: 134px; text-align: center; margin: 0;">clear</td>
+<td style="width: 134px; text-align: center; margin: 0; margin: 0;">Allows you to clear a amount of messages in a channel</td>
+<td style="width: 134px; text-align: center; margin: 0;">.clear {ammount/user}</td>
+</tr>
+<tr>
+<td colspan="5">
+<div><hr></div>
+</td>
+</tr>
+<tr>
+<td style="width: 134px; text-align: center; margin: 0;">mute</td>
+<td style="width: 134px; text-align: center; margin: 0; margin: 0;">Allows you to mute a user</td>
+<td style="width: 134px; text-align: center; margin: 0;">.mute {user}</td>
+</tr>
+<tr>
+<td colspan="5">
+<div><hr></div>
+</td>
+</tr>
+<tr>
+<td style="width: 134px; text-align: center; margin: 0;">unmute</td>
+<td style="width: 134px; text-align: center; margin: 0; margin: 0;">Allows you to unmute a user</td>
+<td style="width: 134px; text-align: center; margin: 0;">.unmute {user}</td>
+</tr>
+<tr>
+<td colspan="5">
+<div><hr></div>
+</td>
+</tr>
+<tr>
+<td style="width: 134px; text-align: center; margin: 0;">kick</td>
+<td style="width: 134px; text-align: center; margin: 0; margin: 0;">Allows you to kick a user</td>
+<td style="width: 134px; text-align: center; margin: 0;">.kick {user}</td>
+</tr>
+<tr>
+<td colspan="5">
+<div><hr></div>
+</td>
+</tr>
+<tr>
+<td style="width: 134px; text-align: center; margin: 0;">ban</td>
+<td style="width: 134px; text-align: center; margin: 0; margin: 0;">Allows you to ban a user</td>
+<td style="width: 134px; text-align: center; margin: 0;">.ban {user}</td>
+</tr>
+<tr>
+<td colspan="5">
+<div><hr></div>
+</td>
+</tr>
+<tr>
+<td style="width: 134px; text-align: center; margin: 0;">reportsetup</td>
+<td style="width: 134px; text-align: center; margin: 0; margin: 0;">Allows staff to setup reporting for your server! type in the report log channel.</td>
+<td style="width: 134px; text-align: center; margin: 0;">.reportsetup</td>
+</tr>
+<tr>
+<td colspan="5">
+<div><hr></div>
+</td>
+</tr>
+<tr>
+<td style="width: 134px; text-align: center; margin: 0;">reportreply</td>
+<td style="width: 134px; text-align: center; margin: 0; margin: 0;">Allows server staff to respond to user reports</td>
+<td style="width: 134px; text-align: center; margin: 0;">.reportreply {target/sender} {message} {report_id}</td>
+</tr>
+<tr>
+<td colspan="5">
+<div><hr></div>
+</td>
+</tr>
+<tr>
+<td style="width: 134px; text-align: center; margin: 0;">report</td>
+<td style="width: 134px; text-align: center; margin: 0; margin: 0;">Allows you to report users for a reason (only if setup by server admins use .reportsetup in the channel for reports)</td>
+<td style="width: 134px; text-align: center; margin: 0;">.report {user} {reason}</td>
+</tr>
+<tr>
+<td colspan="5">
+<div><hr></div>
+</td>
+</tr>
+<tr>
+<td style="width: 134px; text-align: center; margin: 0;">play</td>
+<td style="width: 134px; text-align: center; margin: 0; margin: 0;">Play a song from youtube or resume a paused song</td>
+<td style="width: 134px; text-align: center; margin: 0;">.play {url/search}</td>
+</tr>
+<tr>
+<td colspan="5">
+<div><hr></div>
+</td>
+</tr>
+<tr>
+<td style="width: 134px; text-align: center; margin: 0;">pause</td>
+<td style="width: 134px; text-align: center; margin: 0; margin: 0;">Pause a playing song</td>
+<td style="width: 134px; text-align: center; margin: 0;">.pause</td>
+</tr>
+<tr>
+<td colspan="5">
+<div><hr></div>
+</td>
+</tr>
+<tr>
+<td style="width: 134px; text-align: center; margin: 0;">join</td>
+<td style="width: 134px; text-align: center; margin: 0; margin: 0;">Makes the bot join a channel or join the channel your in</td>
+<td style="width: 134px; text-align: center; margin: 0;">.join</td>
+</tr>
+<tr>
+<td colspan="5">
+<div><hr></div>
+</td>
+</tr>
+<tr>
+<td style="width: 134px; text-align: center; margin: 0;">leave</td>
+<td style="width: 134px; text-align: center; margin: 0; margin: 0;">Make the bot leave the channel its currently in</td>
+<td style="width: 134px; text-align: center; margin: 0;">.leave</td>
+</tr>
+<tr>
+<td colspan="5">
+<div><hr></div>
+</td>
+</tr>
+<tr>
+<td style="width: 134px; text-align: center; margin: 0;">stop</td>
+<td style="width: 134px; text-align: center; margin: 0; margin: 0;">Leave's the channel and clears the queue</td>
+<td style="width: 134px; text-align: center; margin: 0;">.stop</td>
+</tr>
+<tr>
+<td colspan="5">
+<div><hr></div>
+</td>
+</tr>
+<tr>
+<td style="width: 134px; text-align: center; margin: 0;">np</td>
+<td style="width: 134px; text-align: center; margin: 0; margin: 0;">Allows you to see the song the bot is currently playing</td>
+<td style="width: 134px; text-align: center; margin: 0;">.np</td>
+</tr>
+<tr>
+<td colspan="5">
+<div><hr></div>
+</td>
+</tr>
+<tr>
+<td style="width: 134px; text-align: center; margin: 0;">queue</td>
+<td style="width: 134px; text-align: center; margin: 0; margin: 0;">Allows you to see the queue</td>
+<td style="width: 134px; text-align: center; margin: 0;">.queue</td>
+</tr>
+<tr>
+<td colspan="5">
+<div><hr></div>
+</td>
+</tr>
+<tr>
+<td style="width: 134px; text-align: center; margin: 0;">skip</td>
+<td style="width: 134px; text-align: center; margin: 0; margin: 0;">Allows you to skip the current song</td>
+<td style="width: 134px; text-align: center; margin: 0;">.skip</td>
+</tr>
+<tr>
+<td colspan="5">
+<div><hr></div>
+</td>
+</tr>
+<tr>
+<td style="width: 134px; text-align: center; margin: 0;">translate</td>
+<td style="width: 134px; text-align: center; margin: 0; margin: 0;">Translate text to a diffrent langage</td>
+<td style="width: 134px; text-align: center; margin: 0;">.translate {country_code} {text_to_translate}</td>
+</tr>
+<tr>
+<td colspan="5">
+<div><hr></div>
+</td>
+</tr>
+<tr>
+<td style="width: 134px; text-align: center; margin: 0;">talk</td>
+<td style="width: 134px; text-align: center; margin: 0; margin: 0;">The bot will talk for you in a diffrent langage</td>
+<td style="width: 134px; text-align: center; margin: 0;">.talk {country_code} {text_to_say}</td>
+</tr>
+<tr>
+<td colspan="5">
+<div><hr></div>
+</td>
+</tr>
+<tr>
+<td style="width: 134px; text-align: center; margin: 0;">remove</td>
+<td style="width: 134px; text-align: center; margin: 0; margin: 0;">Removes any song form the queue</td>
+<td style="width: 134px; text-align: center; margin: 0;">.remove {song_number}</td>
+</tr>
+</table>
+</body>
+</html>

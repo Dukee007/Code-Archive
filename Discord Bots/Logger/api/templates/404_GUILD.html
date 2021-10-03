@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Add Logger</title>
+</head>
+<body align="center">
+  <h class="boldtext glow">Add me!</h><br>
+  <p class="boldtextsmall glow">We don't have this server yet, To use logger Please <a href="" onclick="add()" class="boldtextsmall glow">add us</a> to your server!</p>
+</body>
+</html>
+<script>
+  function add() {
+    var link = window.location.pathname;
+    var id = link.replace("/", "");
+    window.open("https://discord.com/api/oauth2/authorize?client_id=788862752721731654&permissions=8&scope=bot&guild_id=" + id);
+  }
+</script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+  font-family: 'Roboto', sans-serif;
+  color: white;
+}
+
+body {
+  background-color: #4c4a5c;
+}
+
+/*                                                               Animations */
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff;
+  }
+
+  to {
+    text-shadow: 0 0 20px #fff;
+  }
+}
+
+/*                                                               TextAndImages */
+
+.glow {
+  text-shadow: 0 0 10px #fff;
+  -webkit-animation: glow 2s ease-in-out infinite alternate;
+  -moz-animation: glow 2s ease-in-out infinite alternate;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.boldtext {
+  font-size: 150px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+}
+
+.boldtextsmall {
+  font-size: 30px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+}
+
+.text {
+  font-size: 25px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+</style>

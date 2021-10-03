@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/static?file=css/home.css">
+  <link rel="stylesheet" href="/static?file=css/navbar.css">
+  <script src="//browser-update.org/update.min.js"></script>
+  <title>Boba Dankers - Home</title>
+</head>
+<body align="center">
+  {% if issignedin is true %}
+  <ul>
+    <li><a href="#home">Behaviour</a></li>
+    <li><a href="#news">Announcements</a></li>
+    <li><a href="/dashboard">Dashboard</a></li>
+    <li><a href="/discord-signout">Logout</a></li>
+    <li style="float:left"><a class="cursive" href="/">Boba Dankers</a></li>
+  </ul>
+  {% else %}
+  <ul>
+    <li><a href="/discord-auth">Login</a></li>
+    <li style="float:left"><a class="cursive" href="/">Boba Dankers</a></li>
+  </ul>
+  {% endif %}
+  <br><br><br>
+  <h class="title">Hey there, we are </h><h class="titlec">Boba Dankers</h>
+  <p class="text">
+    Looking for a fun Dank Memer server?<br>
+    Look what we have to offer:<br><br>
+
+    ✧═══════════════════✧<br>
+    🏦 Daily 50M Heists! 🏦<br>
+    🎉 Daily Giveaways! 🎉<br>
+    🎨 Multiple self roles 🎨<br>
+    💳 Cool Booster perks 💳<br>
+    💰 Rob and heist disabled 💰<br>
+    👀 Premium Server 👀<br>
+    ✧═══════════════════✧<br>
+    What Are you waiting for, Join Up!<br>
+    We are looking for heist partners!<br>
+    🔥 Enjoy this wonderful server 🔥<br>
+    ✧═══════════════════✧
+  </p>
+  <img class="textimg" src="https://cdn.bobadankers.xyz/standard_1.gif" alt="">
+  <img class="textimg" src="https://cdn.bobadankers.xyz/standard_2.gif" alt=""><br>
+  <iframe src="https://discord.com/widget?id=784130540269076481&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+
+</body>
+</html>
