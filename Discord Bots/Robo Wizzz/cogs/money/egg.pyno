@@ -1,0 +1,172 @@
+import discord, time, asyncio, os, random, json, ezfile
+from discord.ext import commands, tasks
+from discord.ext.commands import has_permissions, cooldown, MissingPermissions, check
+from discord.utils import get
+from termcolor import colored
+from threading import Thread
+
+class App(commands.Cog):
+    def __init__(self, client):
+        self.client = client
+        print("Money - Shop               "+colored('Running', 'green'))
+
+    @commands.command()
+    async def shop(self, ctx):
+        embed=discord.Embed(title="🥳🥳🥳| EASTER EVENT |🥳🥳🥳", description="This is a limited time shop item. Stock runs out on April 4th 2021. To buy the item, type ?buy egg `<amount>`. Buy now!", color=0xfbff00)
+        embed.set_thumbnail(url='https://lh3.googleusercontent.com/proxy/fUid63_C29b4lFRnM52qsg3C2hDF8kgl_m5pFRON8X9s4JPXWTJIPN0bSzFN0voD2CgUkqQm2yDEGz2_54xZtD3E')
+        embed.add_field(name="Easter Egg       `7 Ro-bucks`", value="You will be able to open this egg on 4th April, 2021! It will surely be worth the cost.", inline=True)
+        embed.set_footer(text="Robo Wizzz Easter Event.")
+        await ctx.send(embed=embed)
+
+    @commands.command()
+    async def buy(self, ctx, item : str = None, ammount : int = None):
+        if item == None:
+            await ctx.send("How do you think your gonna buy nothing? **dum dum**")
+            return
+        if ammount == None:
+            ammount = 1
+
+        bals = ezfile.loadjson("money_databases/bals.json")
+        eggs = ezfile.loadjson("money_databases/egg_database.json")
+
+        try:
+            eg = eggs[str(ctx.author.id)]
+        except:
+            eggs[str(ctx.author.id)] = 0
+
+        try:
+            bal = bals[str(ctx.author.id)]
+        except KeyError:
+            bals[str(ctx.author.id)] = {"bank": 30, "wallet": 20}
+
+        if item.lower() == "egg":
+            price = ammount * 7
+            if bals[str(ctx.author.id)]["wallet"] < price:
+                await ctx.send("You can't afford that chief!")
+                return
+
+            eggs[str(ctx.author.id)] += ammount
+            bals[str(ctx.author.id)]["wallet"] -= price
+
+            await ctx.send(f"You now have {str(eggs[str(ctx.author.id)])} egg(s)!")
+            ezfile.savejson("money_databases/egg_database.json", eggs)
+            ezfile.savejson("money_databases/bals.json", bals)
+
+        else:
+            await ctx.send("Hey, that item could not be found!")
+
+    @commands.command()
+    async def inv(self, ctx):
+        eggs = ezfile.loadjson("money_databases/egg_database.json")
+
+        try:
+            eg = eggs[str(ctx.author.id)]
+        except:
+            eggs[str(ctx.author.id)] = 0
+
+        ezfile.savejson("money_databases/egg_database.json", eggs)
+
+        embed=discord.Embed(title="Inventory", description="These are the items in your inventory. This menu will be revamped in the next update!", color=0x04ff00)
+        embed.set_thumbnail(url='https://www.jing.fm/clipimg/full/202-2023736_suitcase-emoji-png-bag.png')
+        embed.add_field(name="Easter Eggs", value=f"Quantity Owned: `{str(eggs[str(ctx.author.id)])}`", inline=True)
+        embed.set_footer(text="Robo Wizzz Currency System.")
+        await ctx.send(embed=embed)
+
+
+    @commands.command()
+    async def enableegg(self, ctx):
+        if ctx.author.id not in [797783028252016651, 508372340904558603]:
+            await ctx.send("You cannot use this command!")
+            return
+        eggs = ezfile.loadjson("money_databases/egg_switch.json")
+
+        if eggs["switch"]:
+            eggs["switch"] = False
+            await ctx.send("Eggs off")
+        else:
+            eggs["switch"] = True
+            await ctx.send("Eggs on")
+
+        ezfile.savejson("money_databases/egg_switch.json", eggs)
+
+    @commands.command()
+    @commands.cooldown(1, 15, commands.BucketType.user)
+    async def egg(self, ctx):
+        eggs = ezfile.loadjson("money_databases/egg_switch.json")
+        if not eggs["switch"]:
+            await ctx.send("Wait until easter!")
+            return
+
+        eggs = ezfile.loadjson("money_databases/egg_database.json")
+
+        try:
+            eg = eggs[str(ctx.author.id)]
+        except:
+            eggs[str(ctx.author.id)] = 0
+
+        if eggs[str(ctx.author.id)] < 1:
+            await ctx.send("You don't have any eggs!")
+            return
+
+        modes = ["quote", "quote", "quote", "quote", "quote", "item", "role", "quote", "coins", "coins"]
+        modes += modes
+        modes += modes
+        quotes = ["All our dreams can come true, if we have the courage to pursue them. – Walt Disney", "The secret of getting ahead is getting started. – Mark Twain", "I’ve missed more than 9,000 shots in my career. I’ve lost almost 300 games. 26 times I’ve been trusted to take the game winning shot and missed. I’ve failed over and over and over again in my life and that is why I succeed. – Michael Jordan", "Don’t limit yourself. Many people limit themselves to what they think they can do. You can go as far as your mind lets you. What you believe, remember, you can achieve. – Mary Kay Ash", "The best time to plant a tree was 20 years ago. The second best time is now. – Chinese Proverb", "It’s hard to beat a person who never gives up. – Babe Ruth"]
+
+        msg = await ctx.send("**Hatching Egg** <:Easteregg:824983747191504906>")
+        await asyncio.sleep(random.randint(2, 4))
+        await msg.edit(content="**Checking your luck** 🤩")
+        await asyncio.sleep(random.randint(2, 4))
+        await msg.edit(content="**Retrieving Information** 👀")
+        await asyncio.sleep(random.randint(2, 4))
+        mode = random.choice(modes)
+        eggs[str(ctx.author.id)] -= 1
+
+        if mode == "quote":
+            await msg.edit(content=f"`{random.choice(quotes)}`\nBetter Luck Next Time.")
+            return
+
+        elif mode == "coins":
+            prize = random.randint(20, 30)
+            await msg.edit(content=f"You managed to score {str(prize)} coins. GG!")
+            bals = ezfile.loadjson("money_databases/bals.json")
+            bals[str(ctx.author.id)]["wallet"] += prize
+            ezfile.savejson("money_databases/bals.json", bals)
+
+        elif mode == "role":
+            role = get(ctx.guild.roles, id=826874563705962496)
+            try:
+                await user.add_roles(role)
+                await msg.edit(content="Congrats you got the 2021 Easter Event Role!")
+            except:
+                await msg.edit(content="You rolled the 2021 Easter Event Role again! You already have it so you get nothing.")
+
+        elif mode == "item":
+            await msg.edit(content="Congrats you have got Rarest item possible to obtain from this egg! This item will have a very high value in upcoming bot updates! 🎉")
+            eggss = ezfile.loadjson("money_databases/prize_winners.json")
+
+            if str(ctx.author.id) in eggss:
+                await msg.edit(content="You rolled the Rarest item possible again! You already have it so you get nothing.")
+                return
+
+            eggss.append(str(ctx.author.id))
+
+            eggss = ezfile.savejson("money_databases/prize_winners.json", eggss)
+
+
+        ezfile.savejson("money_databases/egg_database.json", eggs)
+
+    @egg.error
+    async def egg_error(self, ctx, error):
+        if isinstance(error, commands.CommandOnCooldown):
+            errorr = round(float(str(error).replace("You are on cooldown. Try again in ", "").replace("s", "")))
+            embed=discord.Embed(title="Hey! This command is on a cooldown.", description=f"You can use this command only once in 15 secs. You don't wanna break me!\nTry again in {errorr}s", color=0x44ff00)
+            embed.set_thumbnail(url='https://images-ext-2.discordapp.net/external/N8LpKSOO52iNCGjQQ6yJOqlW89RJkzSbDSNjOOa_mVg/%3Fwidth%3D427%26height%3D427/https/media.discordapp.net/attachments/798968646336249928/816351655812792410/kKMxMuzufRPMRxioYgWq_XylZQ1cP0nJ89Za3Bo0VxNGypkybermjXlzOhjW-gCEuT675G4cz_CBDo5Db7Qow5sUuR70FUlXVwag.png?width=300&height=300')
+            embed.set_footer(text="Robo Wizzz Currency System.")
+            await ctx.send(embed=embed)
+
+
+
+
+def setup(client):
+    client.add_cog(App(client))

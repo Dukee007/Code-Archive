@@ -1,0 +1,47 @@
+import discord, time, asyncio, os, random, json, unidecode
+from discord.ext import commands, tasks
+from discord.ext.commands import has_permissions, cooldown, MissingPermissions, check
+from discord.utils import get
+from termcolor import colored
+from discord_webhook import DiscordWebhook
+
+class App(commands.Cog):
+    def __init__(self, client):
+        self.client = client
+        print("Automod AntiCool                    "+colored('Running', 'green'))
+
+    async def checkcool(self, msg, ctx):
+        if "cool" in msg.lower().strip().replace(" ", "") or "cool" in msg.lower().strip().replace(" ", "").replace("0", "o"):
+
+            with open("database/webhooks.json") as f:
+                webhooks = json.load(f)
+                f.close()
+
+            try:
+                webhook = DiscordWebhook(url=webhooks[str(ctx.channel.id)], content=str(msg.lower().replace("cool", "kewl").replace("c00l", "kool")), avatar_url=str(ctx.author.avatar_url), username=str(ctx.author.name))
+                response = webhook.execute()
+            except:
+                web = await ctx.channel.create_webhook(name='DO NOT DELETE - ANTI COOL SYSTEM')
+                webhooks[str(ctx.channel.id)] = web.url
+                webhook = DiscordWebhook(url=webhooks[str(ctx.channel.id)], content=str(msg.lower().replace("cool", "kewl").replace("c00l", "kool")), avatar_url=str(ctx.author.avatar_url), username=str(ctx.author.name))
+                response = webhook.execute()
+
+            await ctx.delete()
+
+            with open("database/webhooks.json", "w+") as f:
+                json.dump(webhooks, f)
+                f.close()
+
+
+
+    @commands.Cog.listener()
+    async def on_message(self, message):
+        if not message.author.bot:
+            await self.checkcool(message.content, message)
+
+    @commands.Cog.listener()
+    async def on_message_edit(self, before, after):
+        await self.checkcool(after.content, after)
+
+def setup(client):
+    client.add_cog(App(client))
